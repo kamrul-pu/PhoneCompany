@@ -19,13 +19,13 @@ class PhoneNumber(models.Model):
         return f"{self.number} {self.company}"
 
 class Customer(models.Model):
-    primary_phone = models.CharField(max_length=20,unique=True,null=True,blank=True)
+    primary_phone = models.CharField(max_length=20,blank=True,null=True)
     full_name = models.CharField(max_length=200,blank=True,null=True)
     registraton_date = models.DateTimeField(auto_now_add=True)
     # plan = models.ForeignKey(Plan,on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.full_name} {self.primary_phone}"
+        return f"{self.full_name}"
 
 #Customer owns phone numbers
 class CustomerNumber(models.Model):
