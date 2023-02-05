@@ -16,16 +16,18 @@ class PhoneNumber(models.Model):
     activated = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.number} {self.company}"
+        return f"{self.number}"
 
 class Customer(models.Model):
     primary_phone = models.CharField(max_length=20,blank=True,null=True)
-    full_name = models.CharField(max_length=200,blank=True,null=True)
+    first_name = models.CharField(max_length=100,blank=True,null=True)
+    last_name = models.CharField(max_length=100,blank=True,null=True)
     registraton_date = models.DateTimeField(auto_now_add=True)
+    #Other customer attributes can be added if required
     # plan = models.ForeignKey(Plan,on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.full_name}"
+        return f"{self.first_name} {self.last_name}"
 
 #Customer owns phone numbers
 class CustomerNumber(models.Model):

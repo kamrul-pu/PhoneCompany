@@ -1,10 +1,14 @@
 {% extends 'main.html' %}
 {% block content %}
 <h1>Login Page</h1>
-<form action="" method="POST">
-    {{form.as_p}}
-    {% csrf_token %}
-    <input type="submit" value="Login" class="btn btn-success btn-md">
-</form>
+<div class="row">
+    <div class="col-6 mx-auto">
+        <form action="" method="POST" class="form">
+            {{form}}
+            {% csrf_token %}
+            <input type="submit" value="Login" class="btn btn-success btn-md">
+        </form>
+    </div>
+</div>
 
 {% endblock %}
